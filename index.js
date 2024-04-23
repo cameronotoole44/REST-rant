@@ -1,20 +1,22 @@
+// GLOBAL //
 require('dotenv').config();
 const express = require('express');
 const app = express();
 
+// EXPRESS //
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+app.use(express.static('public'));
 
-
-
+// CONTROLLERS/ROUTES //
 app.use('/places', require('./controllers/places'));
-
 app.get('/', (req, res) => {
-    res.render('home');
-})
-
+    res.render('home')
+});
 app.get('*', (req, res) => {
-    res.render('error404');
-})
+    res.render('error404')
+});
 
-app.listen(process.env.PORT)
+
+app.listen(process.env.PORT);
+
