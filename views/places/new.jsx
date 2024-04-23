@@ -5,8 +5,10 @@ function newForm(data) {
     return (
         <Def>
             <main>
-                <h1>ENW FORM</h1>
+                <h1>Add a New Place</h1>
             </main>
         </Def>
     )
-}
+};
+
+module.exports = newForm;
