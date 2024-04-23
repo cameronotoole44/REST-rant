@@ -2,8 +2,6 @@
 
 REST-Rant is an app where users can review restaurants.
 
-- work in progress, check back soon!
-
 ## ROUTES
 
 | Method | Path                       | Purpose                                                                        |
@@ -23,10 +21,13 @@ REST-Rant is an app where users can review restaurants.
 
 ## USER STORIES & WIREFRAMES
 
-- TBD
+- "As a food enthusiast, I want to effortlessly discover, rate, and review restaurants nearby to share my dining experiences with others and make informed decisions about where to eat next."
+- "As a traveler exploring new cities, I desire a convenient app to quickly find and evaluate local restaurants, ensuring memorable culinary experiences during my adventures."
+- "As a software engineer, I plan to develop a restaurant app with intuitive user interfaces, seamless navigation, and backend architecture, empowering users to effortlessly share and explore culinary experiences."
 
 ## DATA
-
+- a work in progress, check back soon!
+- 
 ---
 
 ### Places
