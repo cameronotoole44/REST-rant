@@ -13,13 +13,13 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
 
     if (!req.body.pic) {
-        req.body.pic = '/images/working.jpg'
+        req.body.pic = '/images/default.jpg'
     }
     if (!req.body.city) {
         req.body.city = 'Someplace'
     }
     if (!req.body.country) {
-        req.body.country = 'Canada'
+        req.body.country = 'Somewhere'
     }
     places.push(req.body);
     res.redirect('/places') // it being literal is almost confusing //
