@@ -1,8 +1,36 @@
+/* GENERAL */
 h1 {
     text-align: center;
     color: #6495ed;
 }
-
 body {
     background-color: #b9b9b9;
+    text-align: center;
+}
+main {
+    margin-right: 100px;
+    margin-left: 100px;
+    padding: 40px;
+}
+
+/* NAV */
+nav{
+    background-color:#d1d1d1;
+    padding: 10px;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+nav li {
+    display: inline;
+    margin-right: 25px;
+}
+nav a {
+    color: #fff;
+    font-size: 1.5em;
+}
+nav a:hover {
+    color: #ff81cf;
+    text-decoration: none;
 }
