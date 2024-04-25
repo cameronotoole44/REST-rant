@@ -20,8 +20,8 @@ function new_form(data) {
                         <input className="form-control" id="city" name="city" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="state">State</label>
-                        <input className="form-control" id="state" name="state" />
+                        <label htmlFor="country">Country</label>
+                        <input className="form-control" id="country" name="country" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="cuisines">Cuisines</label>
