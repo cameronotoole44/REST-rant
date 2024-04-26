@@ -1,16 +1,18 @@
 const router = require('express').Router();
 const places = require('../models/places.js');
 
+// HOME-INDEX //
 router.get('/', (req, res) => {
 
     res.render('places/index', { places })
 });
 
+// NEW //
 router.get('/new', (req, res) => {
     res.render('places/new')
 });
 
-
+// SHOW //
 router.get('/:id', (req, res) => {
     let id = Number(req.params.id)
     if (isNaN(id)) {
@@ -24,7 +26,49 @@ router.get('/:id', (req, res) => {
     }
 });
 
+// EDIT //
+router.get('/:id/edit', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        res.render('places/edit', { place: places[id] })
+    }
+});
 
+// UPDATE //
+router.put('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+
+        if (!req.body.pic) {
+
+            req.body.pic = '/public/images/default.jpg'
+        }
+        if (!req.body.city) {
+            req.body.city = 'Somewhere'
+        }
+        if (!req.body.country) {
+            req.body.country = 'Someplace'
+        }
+
+        places[id] = req.body
+        res.redirect(` /places/${id}`)
+    }
+
+});
+
+// CREATE //
 router.post('/', (req, res) => {
 
     if (!req.body.pic) {
@@ -40,21 +84,7 @@ router.post('/', (req, res) => {
     res.redirect('/places') // it being literal is almost confusing //
 });
 
-
-router.get('/:id/edit', (req, res) => {
-    let id = Number(req.params.id)
-    if (isNaN(id)) {
-        res.render('error404')
-    }
-    else if (!places[id]) {
-        res.render('error404')
-    }
-    else {
-        res.render('places/edit', { place: places[id] })
-    }
-});
-
-
+// DELETE //
 router.delete('/:id', (req, res) => {
     let id = Number(req.params.id)
     if (isNaN(id)) {
@@ -68,6 +98,5 @@ router.delete('/:id', (req, res) => {
         res.redirect('/places')
     }
 });
-
 
 module.exports = router;
