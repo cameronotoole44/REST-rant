@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
     }
 });
 
-// EDIT //
+// EDIT // PASSED CHECK
 router.get('/:id/edit', (req, res) => {
     let id = Number(req.params.id)
     if (isNaN(id)) {
@@ -40,33 +40,27 @@ router.get('/:id/edit', (req, res) => {
     }
 });
 
-// UPDATE //
+// UPDATE // LANDS AT UNDEFINED?_METHOD=PUT ????
 router.put('/:id', (req, res) => {
-    let id = Number(req.params.id)
-    if (isNaN(id)) {
-        res.render('error404')
-    }
-    else if (!places[id]) {
-        res.render('error404')
-    }
-    else {
+    let id = req.params.id;
+    if (!places[id]) {
+        res.render('error404');
+    } else {
 
         if (!req.body.pic) {
-
-            req.body.pic = '/public/images/default.jpg'
+            req.body.pic = '/public/images/default.jpg';
         }
         if (!req.body.city) {
-            req.body.city = 'Somewhere'
+            req.body.city = 'Somewhere';
         }
         if (!req.body.country) {
-            req.body.country = 'Someplace'
+            req.body.country = 'Someplace';
         }
-
-        places[id] = req.body
-        res.redirect(` /places/${id}`)
+        places[id] = req.body;
+        res.redirect(`/places/${id}`);
     }
-
 });
+
 
 // CREATE //
 router.post('/', (req, res) => {
