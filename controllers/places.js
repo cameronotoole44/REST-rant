@@ -42,24 +42,31 @@ router.get('/:id/edit', (req, res) => {
 
 // UPDATE // LANDS AT UNDEFINED?_METHOD=PUT ????
 router.put('/:id', (req, res) => {
-    let id = req.params.id;
-    if (!places[id]) {
-        res.render('error404');
-    } else {
-
+    let id = Number(req.params.id);
+    console.log('id:', id);
+    console.log('places:', places);
+    if (isNaN(id)) {// if places[id] is falsy - render 404 - this gets hit every time
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
         if (!req.body.pic) {
-            req.body.pic = '/public/images/default.jpg';
+            req.body.pic = '/public/images/default.jpg'
         }
         if (!req.body.city) {
-            req.body.city = 'Somewhere';
+            req.body.city = 'Somewhere'
         }
         if (!req.body.country) {
-            req.body.country = 'Someplace';
+            req.body.country = 'Someplace'
         }
-        places[id] = req.body;
-        res.redirect(`/places/${id}`);
+
+        places[id] = req.body
+        res.redirect(`/places/${id}`)
     }
 });
+
 
 
 // CREATE //
