@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
         res.render('error404')
     }
     else {
-        res.render('places/show', { place: places[id], id })
+        res.render('places/show', { place: places[id], id: id })
     }
 });
 
@@ -36,16 +36,16 @@ router.get('/:id/edit', (req, res) => {
         res.render('error404')
     }
     else {
-        res.render('places/edit', { place: places[id] })
+        res.render('places/edit', { place: places[id], id: id })
     }
 });
 
 // UPDATE // LANDS AT UNDEFINED?_METHOD=PUT ????
 router.put('/:id', (req, res) => {
-    let id = Number(req.params.id);
-    console.log('id:', id);
+    let id = Number(req.params.id); // i don't like this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    console.log('id:', id); // returns NaN ?????????????
     console.log('places:', places);
-    if (isNaN(id)) {// if places[id] is falsy - render 404 - this gets hit every time
+    if (isNaN(id)) {  // if places[id] is falsy - render 404 - this gets hit every time
         res.render('error404')
     }
     else if (!places[id]) {
@@ -66,7 +66,6 @@ router.put('/:id', (req, res) => {
         res.redirect(`/places/${id}`)
     }
 });
-
 
 
 // CREATE //
