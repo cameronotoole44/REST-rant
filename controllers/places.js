@@ -15,13 +15,24 @@ router.get('/', (req, res) => {
 
 // CREATE // 
 router.post('/', (req, res) => {
+    if (req.body.pic === '') { req.body.pic = undefined }
+    if (req.body.city === '') { req.body.city = undefined }
+    if (req.body.country === '') { req.body.country = undefined }
     db.Place.create(req.body)
         .then(() => {
             res.redirect('/places')
         })
         .catch(err => {
-            console.log('err', err)
-            res.render('error404')
+            if (err && err.name == 'ValidationError') {
+                let message = 'Validation Error: '
+                for (var field in err.errors) {
+                    message += `${field} was ${err.errors[field].value}. ${err.errors[field].message}\n`
+                }
+                res.render('places/new', { message })
+            }
+            else {
+                res.render('error404')
+            }
         })
 });
 
