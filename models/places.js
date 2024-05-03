@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const placeSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -7,8 +7,12 @@ const placeSchema = new mongoose.Schema({
     city: { type: String, default: 'Somewhere' },
     country: { type: String, default: 'Someplace' },
     founded: Number
-})
+});
 
-module.exports = mongoose.model('Place', placeSchema)
+placeSchema.methods.showEstablished = function () {
+    return `${this.name} has been serving ${this.city}, ${this.country} since ${this.founded}.`
+};
+
+module.exports = mongoose.model('Place', placeSchema);
 
 
