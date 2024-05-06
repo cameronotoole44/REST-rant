@@ -1,20 +1,13 @@
 const React = require('react')
-const Def = require('../default.jsx')
+const Def = require('../default')
 
 function comment_form(data) {
-    // let message = ''               
-    // if (data.message) {
-    //   message = (
-    //     <h4 className="alert-danger">
-    //       {data.message}
-    //     </h4>
-    //   )
-    // }
+
     return (
         <Def>
             <main>
                 <h1>Add a New Comment</h1>
-                {/* {message} */}
+
                 <form method="POST" action={`/places/${data.place.id}/comment`}>
                     <div className="form-group mx-auto col-sm-6 col-md-4 col-lg-3">
                         <label htmlFor="author">Author</label>
@@ -32,7 +25,7 @@ function comment_form(data) {
                         <label htmlFor="rant">Rant</label>
                         <input type="checkbox" name="rant" id="rant" defaultChecked />
                     </div>
-                    <input className="btn btn-primary" type="submit" value="Add Place" />
+                    <input className="btn btn-primary" type="submit" value="Add Comment" />
                 </form>
             </main>
         </Def>

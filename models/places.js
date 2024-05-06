@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const placeSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    pic: { type: String, default: '/images/default.jpg' }, // default img not showing proper ? //
+    pic: { type: String, default: '/images/default.jpg' },
     cuisines: { type: String, required: true },
     city: { type: String, default: 'Somewhere' },
     country: { type: String, default: 'Someplace' },
