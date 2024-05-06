@@ -65,7 +65,6 @@ router.get('/:id/comment', (req, res) => {
 });
 
 router.post('/:id/comment', (req, res) => {
-    console.log(req.body)
     db.Place.findById(req.params.id)
         .then(place => {
             db.Comment.create(req.body)
