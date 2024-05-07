@@ -119,5 +119,14 @@ router.get('/:id/edit', (req, res) => {
         })
 });
 
+// POST RANT //
+router.post('/:id/rant', (req, res) => {
+    res.send('GET /places/:id/rant stub')
+});
+// DELETE RANT //
+router.delete('/:id/rant/:rantId', (req, res) => {
+    res.send('GET /places/:id/rant/:rantId stub')
+});
+
 module.exports = router;
 

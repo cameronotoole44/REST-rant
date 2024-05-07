@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 let commentSchema = new mongoose.Schema({
     author: { type: String, default: 'Anonymous' },
-    rant: { type: Boolean, default: false },
+    content: { type: String, default: '' },
     stars: { type: Number, required: true },
-    content: { type: String, default: '' }
+    rant: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Comment', commentSchema);

@@ -1,14 +1,14 @@
 const React = require('react')
 const Def = require('../default')
 
-function comment_form(data) {
+function comment_form({ place }) {
 
     return (
         <Def>
             <main>
                 <h1>Add a New Comment</h1>
 
-                <form method="POST" action={`/places/${data.place.id}/comment`}>
+                <form method="POST" action={`/places/${place.id}/comment`}>
                     <div className="form-group mx-auto col-sm-6 col-md-4 col-lg-3">
                         <label htmlFor="author">Author</label>
                         <input className="form-control" id="author" name="author" required />
