@@ -121,10 +121,50 @@ router.get('/:id/edit', (req, res) => {
         })
 });
 
-// DELETE RANT //
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
+
+// DELETE COMMENT //
+const Comment = require('../models/comment'); // IMPORT COMMENT MODEL
+
+router.delete('/:id/comment/:commentId', async (req, res) => {
+    const placeId = req.params.id;
+    const commentId = req.params.commentId;
+
+    try {
+        // FIND COMMENT - DELETE IT // 
+        const deletedComment = await Comment.findByIdAndDelete(commentId);
+
+        if (!deletedComment) {
+            return res.status(404).send('Comment not found');
+        }
+
+        res.redirect(`/places/${placeId}`);
+    } catch (err) {
+        console.error('Error deleting comment:', err);
+        res.status(500).send('Error deleting comment');
+    }
 });
+
+
+
+// router.delete('/:id/comment/:commentId', async (req, res) => {
+//     const placeId = req.params.id;
+//     const commentId = req.params.commentId;
+//     try {
+//         res.redirect(`/places/${placeId}`);
+//     } catch (err) {
+//         console.error('Error deleting comment:', err);
+//         res.status(500).send('Error deleting comment');
+//     }
+// });
+
+
+// router.delete('/:id/comment/commentId', async (req, res) => {
+//     res.send('GET /places/:id/comment/:commentId stub')
+// });
+
+
+
+
 
 module.exports = router;
 

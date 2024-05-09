@@ -28,16 +28,18 @@ function show({ place }) {
         )
         comments = place.comments.map(c => {
             return (
-                <div className="border">
+                <div className="border" key="comment.id">
                     <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
                     <h4>{c.content}</h4>
                     <h3>
                         <stong>- {c.author}</stong>
                     </h3>
                     <h4>Rating: {c.stars}</h4>
-                    <form method="POST" action={`/places/${place.id}/comment/${c.id}?_method="DELETE`}>
-                        <input type="submit" className="btn btn-danger" value="Delete Comment" />
+                    <form method="POST" action={`/places/${place.id}/comment/${c.id}?_method=DELETE`}>
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button type="submit" className="btn btn-danger">Delete Comment</button>
                     </form>
+
                 </div>
             )
         })
