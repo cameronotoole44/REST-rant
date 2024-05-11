@@ -74,7 +74,7 @@ router.post('/:id/comment', (req, res) => {
                 author: req.body.author,
                 content: req.body.content,
                 stars: req.body.stars,
-                rant: req.body.rant === 'on'
+                rant: req.body.rant === 'on' // MAKES SURE BOOLEAN IS CORRECTLY INTERPRETED
             })
                 .then(comment => {
                     place.comments.push(comment.id)
