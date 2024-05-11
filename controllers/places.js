@@ -57,17 +57,25 @@ router.get('/:id', (req, res) => {
 
 // COMMENTS //
 router.get('/:id/comment', (req, res) => {
-    console.log(req.body);
     db.Place.findById(req.params.id)
         .then(place => {
             res.render('places/newComment', { place });
+        })
+        .catch(err => {
+            console.log(err)
+            res.render('error404')
         })
 });
 
 router.post('/:id/comment', (req, res) => {
     db.Place.findById(req.params.id)
         .then(place => {
-            db.Comment.create(req.body)
+            db.Comment.create({
+                author: req.body.author,
+                content: req.body.content,
+                stars: req.body.stars,
+                rant: req.body.rant === 'on'
+            })
                 .then(comment => {
                     place.comments.push(comment.id)
                     place.save()
@@ -143,28 +151,6 @@ router.delete('/:id/comment/:commentId', async (req, res) => {
         res.status(500).send('Error deleting comment');
     }
 });
-
-
-
-// router.delete('/:id/comment/:commentId', async (req, res) => {
-//     const placeId = req.params.id;
-//     const commentId = req.params.commentId;
-//     try {
-//         res.redirect(`/places/${placeId}`);
-//     } catch (err) {
-//         console.error('Error deleting comment:', err);
-//         res.status(500).send('Error deleting comment');
-//     }
-// });
-
-
-// router.delete('/:id/comment/commentId', async (req, res) => {
-//     res.send('GET /places/:id/comment/:commentId stub')
-// });
-
-
-
-
 
 module.exports = router;
 
