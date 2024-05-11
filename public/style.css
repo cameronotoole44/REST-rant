@@ -1,36 +1,44 @@
 /* GENERAL */
 h1 {
-    text-align: center;
-    color: #81ffb6;
+  text-align: center;
+  color: #3c43a3;
 }
 body {
-    background-color: #9b9b9b;
-    text-align: center;
+  background-color: #9b9b9b;
+  text-align: center;
 }
 main {
-    margin-right: 100px;
-    margin-left: 100px;
-    padding: 40px;
+  margin-right: 100px;
+  margin-left: 100px;
+  padding: 40px;
+}
+/* DIV */
+div a {
+  color: #8120ff;
+  text-decoration: none;
+}
+div a:hover {
+  color: #9d77cf;
 }
 
 /* NAV */
-nav{
-    background-color:#808080;
-    padding: 10px;
+nav {
+  background-color: #808080;
+  padding: 10px;
 }
 nav ul {
-    list-style-type: none;
-    margin: 0;
+  list-style-type: none;
+  margin: 0;
 }
 nav li {
-    display: inline;
-    margin-right: 25px;
+  display: inline;
+  margin-right: 25px;
 }
 nav a {
-    color: #fff;
-    font-size: 1.5em;
+  color: #fff;
+  font-size: 1.5em;
 }
 nav a:hover {
-    color: #81ffb6;
-    text-decoration: none;
+  color: #ff81ee;
+  text-decoration: none;
 }

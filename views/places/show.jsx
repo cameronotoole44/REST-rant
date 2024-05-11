@@ -73,7 +73,8 @@ function show({ place }) {
                 </form>
                 <h2> Comments</h2>
                 {comments}
-                <a href={`/places/${place.id}/comment`}>Add New Comment</a>
+                <a href={`/places/${place.id}/comment`} className="btn btn-secondary">Add New Comment</a>
+
             </main>
         </Def>
     )
