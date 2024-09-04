@@ -1,12 +1,21 @@
-const React = require('react');
+import React, { ReactNode } from 'react';
 
-function Def(html) {
+interface DefProps {
+    children: ReactNode;
+}
+
+const Def: React.FC<DefProps> = ({ children }) => {
     return (
         <html>
             <head>
                 <title>restRant</title>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossOrigin="anonymous"></link>
-                <link rel="stylesheet" href="/style.css"></link>
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+                    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+                    crossOrigin="anonymous"
+                />
+                <link rel="stylesheet" href="/style.css" />
             </head>
             <body>
                 <nav>
@@ -22,10 +31,11 @@ function Def(html) {
                         </li>
                     </ul>
                 </nav>
-                {html.children}
+                {children}
             </body>
         </html>
-    )
+    );
 };
 
-module.exports = Def;
+export default Def;
+

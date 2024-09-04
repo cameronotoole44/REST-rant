@@ -1,18 +1,16 @@
-const React = require('react');
-const Def = require('../default');
+import React from 'react';
+import Def from '../default';
 
-function new_form(data) {
-    let message = ''
-    if (data.message) {
-        message = (
-            <h4 className="alert-danger">{data.message}</h4>
-        )
-    }
+interface DataProps {
+    message?: string;
+}
+
+const NewForm: React.FC<DataProps> = ({ message }) => {
     return (
         <Def>
             <main>
                 <h1>Add a New Place</h1>
-                {message}
+                {message && <h4 className="alert-danger">{message}</h4>}
                 <form method="POST" action="/places">
                     <div className="form-group">
                         <label htmlFor="name">Place Name</label>
@@ -35,16 +33,20 @@ function new_form(data) {
                         <input className="form-control" id="cuisines" name="cuisines" required />
                     </div>
                     <div className="form-group">
-                        <label for="founded">Founded Year</label>
-                        <input type="number" className="form-control" id="founded" name="founded" value={new Date().getFullYear()} />
+                        <label htmlFor="founded">Founded Year</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="founded"
+                            name="founded"
+                            defaultValue={new Date().getFullYear()}
+                        />
                     </div>
-
                     <input className="btn btn-primary" type="submit" value="Add Place" />
                 </form>
-
             </main>
         </Def>
-    )
+    );
 };
 
-module.exports = new_form;
+export default NewForm;

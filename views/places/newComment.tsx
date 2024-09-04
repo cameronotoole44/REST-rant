@@ -1,13 +1,17 @@
-const React = require('react')
-const Def = require('../default')
+import React from 'react';
+import Def from '../default';
 
-function comment_form({ place }) {
+interface CommentFormProps {
+    place: {
+        id: string;
+    };
+}
 
+const CommentForm: React.FC<CommentFormProps> = ({ place }) => {
     return (
         <Def>
             <main>
                 <h1>Add a New Comment</h1>
-
                 <form method="POST" action={`/places/${place.id}/comment`}>
                     <div className="form-group mx-auto col-sm-6 col-md-4 col-lg-3">
                         <label htmlFor="author">Author</label>
@@ -15,11 +19,11 @@ function comment_form({ place }) {
                     </div>
                     <div className="form-group mx-auto col-sm-6 col-md-4 col-lg-3">
                         <label htmlFor="content">Content</label>
-                        <input className="form-control" id="content" name="content" />
+                        <textarea className="form-control" id="content" name="content" rows={3}></textarea>
                     </div>
                     <div className="form-group mx-auto col-sm-6 col-md-4 col-lg-3">
                         <label htmlFor="stars">Stars</label>
-                        <input className="form-control" type="number" id="stars" name="stars" value={5} max="5" min="0" required />
+                        <input className="form-control" type="number" id="stars" name="stars" defaultValue={5} max="5" min="0" required />
                     </div>
                     <div className="form-group mx-auto col-sm-6 col-md-4 col-lg-3">
                         <label htmlFor="rant">Rant</label>
@@ -29,7 +33,7 @@ function comment_form({ place }) {
                 </form>
             </main>
         </Def>
-    )
+    );
 };
 
-module.exports = comment_form;
+export default CommentForm;
