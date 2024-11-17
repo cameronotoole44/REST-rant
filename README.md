@@ -4,7 +4,7 @@
 
 REST-Rant is a full-stack web application that lets food enthusiasts share their dining experiences. Users can add, rate, and review restaurants, making it a perfect platform for honest food critics and casual diners alike. Share your culinary adventures, discover new local spots, and join the community of food lovers!
 
-_Note: This project was built as part of my web development journey and serves for educational purposes._
+_Note: This project was built as part of my web development journey and is intended for educational purposes._
 
 ## Features
 
