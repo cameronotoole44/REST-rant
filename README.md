@@ -1,12 +1,34 @@
-# Project REST-Rant
+# REST-Rant
 
-REST-Rant is an app where users can review restaurants.
+## Description
 
-## ROUTES
+REST-Rant is a full-stack web application that lets food enthusiasts share their dining experiences. Users can add, rate, and review restaurants, making it a perfect platform for honest food critics and casual diners alike. Share your culinary adventures, discover new local spots, and join the community of food lovers!
+
+_Note: This project was built as part of my web development journey and serves for educational purposes._
+
+## Features
+
+- Create and view restaurant listings
+- Share detailed reviews or quick "rants" about dining experiences
+- Rate restaurants with a 1-5 star system
+- Add photos of restaurants and dishes
+- Browse local restaurant recommendations
+- Edit or remove your own reviews and listings
+
+## Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express
+- **Database**: MongoDB with Mongoose
+- **Additional Tools**:
+  - dotenv (environment variables)
+  - Express React Views (templating)
+
+## Routes Table
 
 | Method | Path                       | Purpose                                                                        |
 | ------ | -------------------------- | ------------------------------------------------------------------------------ |
-| GET    | `/`                        | The home page                                                                  |
+| GET    | `/`                        | Home page                                                                      |
 | GET    | `/places`                  | Index page listing all places                                                  |
 | GET    | `/places/new`              | New form for a place                                                           |
 | POST   | `/places`                  | Create a new place                                                             |
@@ -16,29 +38,3 @@ REST-Rant is an app where users can review restaurants.
 | DELETE | `/places/:id`              | Delete a place                                                                 |
 | POST   | `/places/:id/rant`         | Add rant to a place                                                            |
 | DELETE | `/places/:id/rant/:rantId` | Delete a rant                                                                  |
-
----
-
-## USER STORIES & WIREFRAMES
-
-- "As a food enthusiast, I want to effortlessly discover, rate, and review restaurants nearby to share my dining experiences with others and make informed decisions about where to eat next."
-- "As a traveler exploring new cities, I desire a convenient app to quickly find and evaluate local restaurants, ensuring memorable culinary experiences during my adventures."
-- "As a software engineer, I plan to develop a restaurant app with intuitive user interfaces, seamless navigation, and backend architecture, empowering users to effortlessly share and explore culinary experiences."
-
-## DATA
-- a work in progress, check back soon!
-- 
----
-
-### Places
-
-| Field    | Type      |
-| -------- | --------- |
-| \_id     | Object ID |
-| name     | String    |
-| city     | String    |
-| country    | String    |
-| cuisines | String    |
-| pic      | String    |
-
----
